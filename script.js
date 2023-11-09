@@ -63,7 +63,7 @@ const temporaryHolidays = { ...holidays }
 //create the temporary christmas object
 const temporaryChristmas = { ...holidays[6]}
 temporaryChristmas.name = 'X-mas Day' 
-temporaryChristmas.date = new Date(`25 December ${currentYear} 00:00`)
+temporaryChristmas.date = setHours(0, 0, 0, 0);
 
 //store the date change
 const tempChristmasDate = temporaryChristmas.date
