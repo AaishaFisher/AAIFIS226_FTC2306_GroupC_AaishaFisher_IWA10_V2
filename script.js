@@ -79,9 +79,10 @@ console.log('New date is earlier:', compareDate)
 
 if (compareDate === true) { temporaryHolidays[6].date = tempChristmasDate }
 
-console.log('ID change:', holidays[6].id != copied.id || copied.id)
-console.log('Name change:', holidays[christmas].name != copied.name || copied.name)
-console.log('Date change:', holidays[christmas].date != copied.date || copied.date)
+console.log('ID change:', holidays[christmas].id !== temporaryChristmas.id);
+console.log('Name change:', holidays[christmas].name !== temporaryChristmas.name);
+console.log('Date change:', holidays[christmas].date !== temporaryChristmas.date);
+
 
 //     Date change: 25/12/2023
 
