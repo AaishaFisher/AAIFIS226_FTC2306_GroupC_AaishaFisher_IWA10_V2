@@ -80,11 +80,15 @@ console.log('New date is earlier:', compareDate)
 if (compareDate === true) { temporaryHolidays[6].date = tempChristmasDate }
 
 console.log('ID change:', holidays[christmas].id !== temporaryChristmas.id);
-console.log('Name change:', holidays[christmas].name !== temporaryChristmas.name);
-console.log('Date change:', holidays[christmas].date !== temporaryChristmas.date);
+
+if (holidays[christmas].name !== temporaryChristmas.name) {
+console.log('Name change:', temporaryChristmas.name )} 
+
+if (holidays[christmas].date !== temporaryChristmas.date) {
+console.log('Date change:', tempChristmasDate) 
+} ;
 
 
-//     Date change: 25/12/2023
 
 const firstHolidayTimestamp = Math.min(
     holidays[0].date.getTime(),
@@ -119,37 +123,12 @@ console.log(`${firstDay}/${firstMonth}/${currentYear}`)
 console.log(`${lastDay}/${lastMonth}/${currentYear}`)
 
 const randomHoliday = holidays[Math.random]
-console.log(randomHoliday.date)
+console.log(randomHoliday.date);
 
- 
- 
-
-// To test out this functionality, you will have to do the following:
-
-//     By default, all holidays start at midnight. However, by accident Christmas was entered as 
-//starting at 13:25. You are required to create a version of the Christmas object that has the date set to midnight.
-//     While you are changing the time when Christmas starts, it is also requested that you change the name from 
-//Christmas to X-mas
 
  
 
-// After applying these changes, you should check whether the new date is earlier than the current date. This will 
-//be done by logging true to the console if this is the case, alternatively, it should log false. Given that midnight 
-//is before 13:25 the following should be logged to the console:
 
- 
-
-// New date is earlier: true
-
- 
-
-// Only if the date is earlier should it apply the change to copied.
-
- 
-
-// After the above changes have been applied to the temporary object, the user should be alerted to what has been 
-//changed before the changes are applied to the holidays object. If a value has not changed it should log false to the 
-//console, alternatively, it should log the new value to the console.
 
  
 
