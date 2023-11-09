@@ -114,58 +114,50 @@ const lastHolidayTimestamp = Math.max(
     holidays[8].date.getTime()
 )
 
-const firstDay = firstHolidayTimestamp.getDate
-const firstMonth = firstHolidayTimestamp.getMonth
-const lastDay = lastHolidayTimestamp.getDate
-const lastMonth = lastHolidayTimestamp.getMonth
 
-console.log(`${firstDay}/${firstMonth}/${currentYear}`)
-console.log(`${lastDay}/${lastMonth}/${currentYear}`)
+// Utility function to convert date strings to Date objects
+function convertToDateObject(dateString) {
+    if (typeof dateString === 'string') {
+        return new Date(dateString);
+    }
+    return dateString instanceof Date ? dateString : new Date(dateString);
+}
 
-const randomHoliday = holidays[Math.random]
-console.log(randomHoliday.date);
+// Convert all date strings in the holidays object to Date objects
+for (let i = 0; i <= 8; i++) {
+    holidays[i].date = convertToDateObject(holidays[i].date);
+}
 
 
- 
+//
 
+//declared our dates
+let firstHoliday = holidays[3].date; // New Year's Day is the first holiday
+let lastHoliday = holidays[2].date;  // Day of Goodwill is the last holiday in the year
 
+// Getting the day, month, and year of the first and last holidays
+const firstDay = String(firstHoliday.getDate()).padStart(2, '0');
+const firstMonth = String(firstHoliday.getMonth() + 1).padStart(2, '0');
+const firstYear = currentYear;
+const lastDay = String(lastHoliday.getDate()).padStart(2, '0');
+const lastMonth = String(lastHoliday.getMonth() + 1).padStart(2, '0');
+const lastYear = currentYear;
 
- 
-
-// It should log the following:
-
-//     ID change: false
-//     Name change: X-mas
-//     Date change: 25/12/2023
-
- 
-
-// Several engineers have attempted to fix this bug before to no avail. We hope that you are able to figure 
-//out why this is happening.
-
- 
-
-// After fixing the above issue, you should also output the following to the console:
-
-//     The first holiday in the year as date, formatted as DD/MM/YYYY . This means that the match (New Years Day) 
-//will look something like 01/01/2030 if the year is 2030
-//     The last holiday in the year as date, formatted as DD/MM/YYYY . This means that the match (Day of Goodwill) 
-//will look something like 26/12/2030 if the year is 2030
-//     A randomly selected holiday date in the same format as above. Note that each time the code runs a new date 
-//should be randomly selected.
+// Formatting and displaying the first and last holiday dates
+console.log(`${firstDay}/${firstMonth}/${currentYear}`);
+console.log(`${lastDay}/${lastMonth}/${currentYear}`);
 
  
+// Selecting a random holiday
+const randomHolidayIndex = Math.floor(Math.random() * 9); // 9 holidays in total
+const randomHolidayDate = convertToDateObject(holidays[randomHolidayIndex].date);
 
-// Note that the DD/MM/YYYY format requires that single digits be prefixed with 0 characters. 
-//In other words, 1/1/2030 should be displayed as 01/01/2030.
+// Getting the day and month of the random holiday
+const randomHolidayDay = String(randomHolidayDate.getDate()).padStart(2, '0');
+const randomHolidayMonth = String(randomHolidayDate.getMonth() + 1).padStart(2, '0');
 
- 
+// Formatting and displaying the random holiday date
+console.log(`${randomHolidayDay}/${randomHolidayMonth}/${currentYear}`);
 
-// It is recommended that you Google and read up on the following:
 
-//     The Math.min and Math.max static methods.
-//     The new Date() constructor.
-//     The .getTime() method on dates.
-//     The .getMonth() , getDate() and .getFullYear() methods on dates.
-//     The .setHours and .setMinutes methods on dates.
-//     The .padStart and .padEnd methods on all strings.
+
