@@ -63,7 +63,7 @@ const temporaryHolidays = { ...holidays }
 //create the temporary christmas object
 const temporaryChristmas = { ...holidays[6]}
 temporaryChristmas.name = 'X-mas Day' 
-temporaryChristmas.date = setHours(0, 0, 0, 0);
+temporaryChristmas.date = new Date(`25 December ${currentYear} 00:00`)
 
 //store the date change
 const tempChristmasDate = temporaryChristmas.date
@@ -74,11 +74,10 @@ const tempChristmasDate = temporaryChristmas.date
 //comparing the date
 const compareDate = Boolean(tempChristmasDate < temporaryHolidays[6].date)
 //isEarlier = copied.date < holidays[6].date
-console.log('New date is earlier:', tempChristmasDate)
+console.log('New date is earlier:', compareDate)
 
 
 if (compareDate === true) { temporaryHolidays[6].date = tempChristmasDate }
-console.log(temporaryHolidays)
 
 console.log('ID change:', holidays[6].id != copied.id || copied.id)
 console.log('Name change:', holidays[christmas].name != copied.name || copied.name)
@@ -115,8 +114,8 @@ const firstMonth = firstHolidayTimestamp.getMonth
 const lastDay = lastHolidayTimestamp.getDate
 const lastMonth = lastHolidayTimestamp.getMonth
 
-console.log('{firstDay}/{firstMonth}/{currentYear}')
-console.log('{lastDay}/{lastMonth}/{currentYear}')
+console.log(`${firstDay}/${firstMonth}/${currentYear}`)
+console.log(`${lastDay}/${lastMonth}/${currentYear}`)
 
 const randomHoliday = holidays[Math.random]
 console.log(randomHoliday.date)
