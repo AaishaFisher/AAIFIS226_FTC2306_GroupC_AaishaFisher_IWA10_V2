@@ -65,44 +65,49 @@ const temporaryChristmas = { ...holidays[6]}
 temporaryChristmas.name = 'X-mas Day' 
 temporaryChristmas.date = new Date(`25 December ${currentYear} 00:00`)
 
-
+//store the date change
+const tempChristmasDate = temporaryChristmas.date
 // correctDate = copied.date
 // correctDate.hours = 0
 // correctDate.minutes = 0
 
 //comparing the date
-const compareDate = Boolean(temporaryChristmas.date < temporaryHolidays[6].date)
+const compareDate = Boolean(tempChristmasDate < temporaryHolidays[6].date)
 //isEarlier = copied.date < holidays[6].date
-console.log('New date is earlier:', compareDate)
+console.log('New date is earlier:', tempChristmasDate)
 
 
-if (compareDate === true) { copied.date = correctDate
-console.log('ID change:', holidays[christmas].id != copied.id || copied.id)
+if (compareDate === true) { temporaryHolidays[6].date = tempChristmasDate }
+console.log(temporaryHolidays)
+
+console.log('ID change:', holidays[6].id != copied.id || copied.id)
 console.log('Name change:', holidays[christmas].name != copied.name || copied.name)
 console.log('Date change:', holidays[christmas].date != copied.date || copied.date)
 
+//     Date change: 25/12/2023
+
 const firstHolidayTimestamp = Math.min(
-    holidays[0].date.getTime,
-    holidays[1].date.getTime,
-    holidays[2].date.getTime,
-    holidays[3].date.getTime,
-    holidays[4].date.getTime,
-    holidays[5].date.getTime,
-    holidays[6].date.getTime,
-    holidays[7].date.getTime,
-    holidays[8].date.getTime,
+    holidays[0].date.getTime(),
+    holidays[1].date.getTime(),
+    holidays[2].date.getTime(),
+    holidays[3].date.getTime(),
+    holidays[4].date.getTime(),
+    holidays[5].date.getTime(),
+    holidays[6].date.getTime(),
+    holidays[7].date.getTime(),
+    holidays[8].date.getTime()
 )
 
 const lastHolidayTimestamp = Math.max(
-    holidays[0].date.getTime,
-    holidays[1].date.getTime,
-    holidays[2].date.getTime,
-    holidays[3].date.getTime,
-    holidays[4].date.getTime,
-    holidays[5].date.getTime,
-    holidays[6].date.getTime,
-    holidays[7].date.getTime,
-    holidays[8].date.getTime,
+    holidays[0].date.getTime(),
+    holidays[1].date.getTime(),
+    holidays[2].date.getTime(),
+    holidays[3].date.getTime(),
+    holidays[4].date.getTime(),
+    holidays[5].date.getTime(),
+    holidays[6].date.getTime(),
+    holidays[7].date.getTime(),
+    holidays[8].date.getTime()
 )
 
 const firstDay = firstHolidayTimestamp.getDate
@@ -116,23 +121,7 @@ console.log('{lastDay}/{lastMonth}/{currentYear}')
 const randomHoliday = holidays[Math.random]
 console.log(randomHoliday.date)
 
-
-
-// However, in this specific example, various South African public holidays are stored as nested 
-//sub-objects in a holidays object. Each holiday is assigned a number from 0 to 8 as a unique key identifier.
-
  
-
-// The team responsible for maintaining this code is in the process of building an app that allows you to 
-//update the dates and names of these holidays as stored in the holidays object. The following code is meant to 
-//serve as a prototype of how this behaviour might work.
-
- 
-
-// However, it is important that changes should be reviewed after they are made. Only after reviewing the 
-//change should a user decide whether they want to apply it to the current data or cancel the change (keeping 
-//the current data as is). To this end, a copied object is used to store the temporary changes that will be applied.
-
  
 
 // To test out this functionality, you will have to do the following:
